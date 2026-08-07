@@ -1,0 +1,18 @@
+body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f5f6f8; color: #222; }
+.navbar { background: #1f3b57; padding: 12px 24px; display: flex; gap: 20px; align-items: center; }
+.navbar a { color: #fff; text-decoration: none; font-size: 14px; }
+.navbar .brand { font-weight: bold; font-size: 18px; margin-right: 20px; }
+.container { max-width: 1000px; margin: 24px auto; padding: 0 16px; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; font-size: 14px; }
+th { background: #eef1f4; }
+.cards { display: flex; gap: 16px; margin-bottom: 24px; }
+.card { flex: 1; background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); text-align: center; }
+.card h2 { margin: 0; font-size: 32px; }
+.card p { margin: 4px 0 0; color: #666; }
+.btn { display: inline-block; padding: 6px 14px; background: #1f3b57; color: #fff; border-radius: 4px; text-decoration: none; font-size: 13px; border: none; cursor: pointer; }
+.btn-danger { background: #b23b3b; }
+form .field { margin-bottom: 14px; }
+label { display: block; margin-bottom: 4px; font-weight: 600; font-size: 13px; }
+input[type=text], textarea, select { width: 100%; max-width: 480px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+.validation-summary-errors, .text-danger { color: #b23b3b; font-size: 13px; }
