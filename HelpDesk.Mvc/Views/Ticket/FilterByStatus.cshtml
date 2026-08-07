@@ -1,0 +1,49 @@
+@model List<Ticket>
+@{
+    ViewData["Title"] = "Filter Tickets by Status";
+    string selected = ViewBag.SelectedStatus as string;
+}
+
+<h1>Filter Tickets by Status</h1>
+
+<form method="get" asp-action="FilterByStatus" class="field">
+    <label for="status">Status</label>
+    <select name="status" id="status" onchange="this.form.submit()">
+        <option value="">-- Select Status --</option>
+        @foreach (var s in TicketOptions.Statuses)
+        {
+            <option value="@s" selected="@(s == selected)">@s</option>
+        }
+    </select>
+</form>
+
+@if (!string.IsNullOrEmpty(selected))
+{
+    if (Model.Count == 0)
+    {
+        <p>No tickets found with status "@selected".</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th><th>Title</th><th>Priority</th><th>Status</th><th>Raised By</th><th></th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var ticket in Model)
+            {
+                <tr>
+                    <td>@ticket.Id</td>
+                    <td>@ticket.Title</td>
+                    <td>@ticket.Priority</td>
+                    <td>@ticket.Status</td>
+                    <td>@ticket.RaisedBy</td>
+                    <td><a asp-action="Details" asp-route-id="@ticket.Id">View</a></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}

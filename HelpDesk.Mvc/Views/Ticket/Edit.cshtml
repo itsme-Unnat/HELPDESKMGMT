@@ -1,0 +1,52 @@
+@model Ticket
+@{
+    ViewData["Title"] = "Edit Ticket";
+}
+
+<h1>Edit Ticket #@Model.Id</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="CreatedDate" />
+    <div asp-validation-summary="ModelOnly" class="validation-summary-errors"></div>
+
+    <div class="field">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" type="text" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="RaisedBy"></label>
+        <input asp-for="RaisedBy" type="text" />
+    </div>
+
+    <div class="field">
+        <label asp-for="Priority"></label>
+        <select asp-for="Priority">
+            @foreach (var p in TicketOptions.Priorities)
+            {
+                <option value="@p" selected="@(p == Model.Priority)">@p</option>
+            }
+        </select>
+    </div>
+
+    <div class="field">
+        <label asp-for="Status"></label>
+        <select asp-for="Status">
+            @foreach (var s in TicketOptions.Statuses)
+            {
+                <option value="@s" selected="@(s == Model.Status)">@s</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn">Save Changes</button>
+    <a class="btn" asp-action="Index">Cancel</a>
+</form>
