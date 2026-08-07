@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - HelpDesk</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="brand" asp-controller="Ticket" asp-action="Dashboard">HelpDesk</a>
+            <a asp-controller="Ticket" asp-action="Dashboard">Dashboard</a>
+            <a asp-controller="Ticket" asp-action="Index">All Tickets</a>
+            <a asp-controller="Ticket" asp-action="Create">Raise Ticket</a>
+            <a asp-controller="Ticket" asp-action="FilterByStatus">Filter by Status</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        @RenderBody()
+    </main>
+</body>
+</html>
